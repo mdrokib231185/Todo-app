@@ -4,35 +4,31 @@ import Item from "./Item";
 import { useForm } from "react-hook-form";
 
 const Todo = () => {
-      const {register, reset, handleSubmit } = useForm();
-      const [text, setText] = useState("");
-      console.log(text);
-     
+  const { register, reset, handleSubmit } = useForm();
+  const [text, setText] = useState("");
+  console.log(text);
 
-
-       const onSubmit = (data) => {
-         const url = "http://localhost:5000/todoList";
-         fetch(url, {
-           method: "POST",
-           headers: {
-             "content-type": "application/json",
-           },
-           body: JSON.stringify(data),
-         })
-           .then((res) => res.json())
-           .then((data) => {
-                 if (data) {
-                   reset()
-             }
-           });
-       };
-       const handleKeyPress = (e) => {
-         if (e.key === "Enter") {
-           console.log("enter press here! ");
-         }
-       };
-
-
+  const onSubmit = (data) => {
+    const url = "https://arctic-leaf-29200.herokuapp.com/todoList";
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          reset();
+        }
+      });
+  };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      console.log("enter press here! ");
+    }
+  };
 
   return (
     <div>
