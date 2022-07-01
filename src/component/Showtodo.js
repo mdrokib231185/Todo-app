@@ -6,7 +6,7 @@ const Showtodo = ({ todo }) => {
   return (
     <div className="item">
       <div className="text">{text}</div>
-      <div className="icons">
+      <div className="icon">
         <Link to={`/update/${(text, _id)}`}>
           <i class="ri-edit-2-fill"></i>
         </Link>

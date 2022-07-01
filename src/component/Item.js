@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Showtodo from './Showtodo';
 
 
-const Item = () => {
+const Item = (data) => {
       const [todos, setTodo] = useState([]);
       console.log(todos);
 
@@ -10,7 +10,7 @@ const Item = () => {
         fetch(`http://localhost:5000/todoList`)
           .then((res) => res.json())
           .then((data) => setTodo(data));
-      }, []);
+      }, [data]);
       return (
         <div className="">
           {todos.map((todo) => (

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-const Update = () => {
-  const { register, reset, handleSubmit } = useForm();
+const Update = (data) => {
+  const { register, reset } = useForm();
   const { id } = useParams();
   const [items, setItems] = useState({});
 
@@ -12,7 +12,7 @@ const Update = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));
-  }, []);
+  }, [data]);
       
   const handelAdd = (event) => {
     event.preventDefault();
@@ -30,10 +30,11 @@ const Update = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data) {
+                if (data) {
+                  reset()
             }
           });
-  };;
+  };
 
   return (
     <div className="container">

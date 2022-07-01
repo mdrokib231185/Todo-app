@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
-import axios from "axios";
+
 import { useForm } from "react-hook-form";
 
 const Todo = () => {
       const {register, reset, handleSubmit } = useForm();
       const [text, setText] = useState("");
       console.log(text);
-      const [todo, setTodo] = useState([]);
-      const [update, setUpdate] = useState([])
+     
 
 
        const onSubmit = (data) => {
@@ -22,24 +21,28 @@ const Todo = () => {
          })
            .then((res) => res.json())
            .then((data) => {
-             if (data) {
+                 if (data) {
+                   reset()
              }
            });
        };
-
+       const handleKeyPress = (e) => {
+         if (e.key === "Enter") {
+           console.log("enter press here! ");
+         }
+       };
 
 
 
   return (
     <div>
       <div className="container">
-        <h1>TO DO APP</h1>
+        <h1 className="text-3xl ">TO DO APP</h1>
         <div className="top">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onKeyPress={handleKeyPress} onSubmit={handleSubmit(onSubmit)}>
             <input
               type="text"
               placeholder="Write Something..."
-              
               {...register("text", {
                 required: {
                   value: true,
@@ -48,14 +51,14 @@ const Todo = () => {
               })}
             />
             <input
-              className="btn w-96 btn-primary text-white"
+              className="btn  btn-primary text-white"
               type="submit"
               value="ADDED"
             />
           </form>
         </div>
         <div className="list">
-          <Item/>
+          <Item />
         </div>
       </div>
     </div>

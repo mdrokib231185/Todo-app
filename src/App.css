@@ -23,18 +23,18 @@ input{
 .add{
   background-color: #000;
   color: #fff;
-  padding: ;
+  
 }
 .item{
 position: relative;
 margin-top: 1rem;
-background-color: #000;
+background-color: rgba(24, 17, 235, 0.898);
 color: #fff;
 padding: 1.5rem;
 border-radius: 5px;
 
 }
-.icons{
+.icon{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -45,4 +45,7 @@ border-radius: 5px;
 }
 i{
   cursor: pointer;
+}
+.all-icon{
+  font-size: 2rem;
 }

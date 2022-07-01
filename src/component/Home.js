@@ -13,7 +13,7 @@ const Home = () => {
       return (
         <div>
           <div className="container">
-            {todos.map((todo) => (
+            {todos.slice(0, 6).map((todo) => (
               <Showtodo key={todo._id} todo={todo} />
             ))}
           </div>
